@@ -8,7 +8,7 @@ module.exports = env => {
 	return {
 		entry: "./src/index.js",
 		output: {
-			path: path.join(__dirname, "public"),
+			path: path.resolve(__dirname, "dist"),
 			filename: "bundle.js"
 		},
 		module: {
@@ -34,13 +34,13 @@ module.exports = env => {
 				filename: "style.css"
 			}),
 			new HtmlWebpackPlugin({
-				template: "./src/index.html"
+				template: "./public/index.html"
 			})
 		],
 		devtool: isProduction ? "source-map" : "inline-source-map",
 		devServer: {
 			historyApiFallback: true,
-			contentBase: path.join(__dirname, "public")
+			contentBase: path.resolve(__dirname, "dist")
 		}
 	};
 };
