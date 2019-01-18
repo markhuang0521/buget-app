@@ -34,13 +34,15 @@ module.exports = env => {
 				filename: "style.css"
 			}),
 			new HtmlWebpackPlugin({
-				template: "./public/index.html"
+				template: "./public/index.html",
+				favicon: "./public/favicon.png"
 			})
 		],
 		devtool: isProduction ? "source-map" : "inline-source-map",
 		devServer: {
 			historyApiFallback: true,
-			contentBase: path.resolve(__dirname, "dist")
+			contentBase: path.resolve(__dirname, "dist"),
+			publicPath: "/dist/"
 		}
 	};
 };
