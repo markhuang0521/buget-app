@@ -40,9 +40,8 @@ module.exports = env => {
 		],
 		devtool: isProduction ? "source-map" : "inline-source-map",
 		devServer: {
-			historyApiFallback: true,
-			contentBase: path.resolve(__dirname, "dist"),
-			publicPath: "/dist/"
+			contentBase: path.join(__dirname, "dist"),
+			historyApiFallback: true
 		}
 	};
 };

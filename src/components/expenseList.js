@@ -5,7 +5,7 @@ import selectExpenses from "../selectors/visbleExpenses";
 
 const ExpenseList = ({ expenses }) => (
 	<div>
-		<h2>Expense List</h2>
+		<h2 >Expense List</h2>
 		<ol>
 			{expenses.map((expense, index) => (
 				<ExpenseListItem key={index} {...expense} />

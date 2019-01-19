@@ -23,12 +23,6 @@ store.subscribe(() => {
 });
 console.log("testing");
 
-// const ex1 = store.dispatch(
-// 	addExpense({ description: "water bill", amount: 1200, createAt: 10 })
-// );
-// store.dispatch(
-// 	addExpense({ description: "rent bill", amount: 87600, createAt: 100 })
-// );
 // store.dispatch(
 // 	addExpense({ description: "gas bill", amount: 3210, createAt: 9999 })
 // );
