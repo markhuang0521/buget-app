@@ -23,9 +23,12 @@ store.subscribe(() => {
 });
 console.log("testing");
 
-// store.dispatch(
-// 	addExpense({ description: "gas bill", amount: 3210, createAt: 9999 })
-// );
+store.dispatch(
+	addExpense({ description: "gas bill", amount: 3210, createAt: 9999 })
+);
+store.dispatch(
+	addExpense({ description: "rent bill", amount: 310000, createAt: 1220 })
+);
 
 // store.dispatch(deleteExpense({ id: ex1.id }));
 // store.dispatch(setTextFilter("water"));
