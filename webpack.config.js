@@ -1,7 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+// process.env.NODE_ENV = process.env.NODE_ENV || "development";
+// if (process.env.NODE_ENV === "test") {
+// } else if (process.env.NODE_ENV === "development") {
+// }
 
 module.exports = env => {
 	isProduction = env === "production";
