@@ -8,7 +8,6 @@ const config = {
 	storageBucket: "expensify-dc43a.appspot.com",
 	messagingSenderId: "1052470829400"
 };
-// console.log("firebase initialize");
 
 firebase.initializeApp(config);
 
