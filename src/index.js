@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppRouter from "./routers/AppRouter";
+import AppRouter, { history } from "./routers/AppRouter";
 import { Provider } from "react-redux";
 import "./style/style.scss";
 import "normalize.css";
 import configStore from "./store/configStore";
-import getVisibleExpenses from "./selectors/visbleExpenses";
-import "./firebase/firebase";
+import { firebase } from "./firebase/firebase";
 import { startSetExpense } from "./actions/expenses";
+import { logIn, logOut } from "./actions/auth";
+// import getVisibleExpenses from "./selectors/visbleExpenses";
 
 const store = configStore();
 // store.subscribe(() => {
@@ -21,9 +22,30 @@ const Jsx = (
 		<AppRouter />
 	</Provider>
 );
+const renderApp = () => {
+	let hasRender = false;
+	if (!hasRender) {
+		ReactDOM.render(Jsx, document.getElementById("root"));
+		hasRender = true;
+	}
+};
 
 ReactDOM.render(<p>loading...</p>, document.getElementById("root"));
 
-store.dispatch(startSetExpense()).then(() => {
-	ReactDOM.render(Jsx, document.getElementById("root"));
+firebase.auth().onAuthStateChanged(user => {
+	if (user) {
+		console.log("log in ");
+		store.dispatch(logIn(user.uid));
+		store.dispatch(startSetExpense()).then(() => {
+			renderApp();
+		});
+		if (history.location.pathname === "/") {
+			history.push("/home");
+		}
+	} else {
+		console.log("log out ");
+		store.dispatch(logOut());
+		renderApp();
+		history.push("/");
+	}
 });
