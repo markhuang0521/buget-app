@@ -8,7 +8,7 @@ import configStore from "./store/configStore";
 import { firebase } from "./firebase/firebase";
 import { startSetExpense } from "./actions/expenses";
 import { logIn, logOut } from "./actions/auth";
-import getVisibleExpenses from "./selectors/visbleExpenses";
+// import getVisibleExpenses from "./selectors/visbleExpenses";
 
 const store = configStore();
 // store.subscribe(() => {

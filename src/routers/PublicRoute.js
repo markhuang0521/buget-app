@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
 export const PublicRoute = ({ isAuth, component: Component, ...rest }) => (
 	<Route
 		{...rest}
@@ -10,7 +9,6 @@ export const PublicRoute = ({ isAuth, component: Component, ...rest }) => (
 		}
 	/>
 );
-
 const mapStateToProps = state => ({
 	isAuth: !!state.auth.uid
 });

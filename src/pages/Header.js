@@ -22,9 +22,6 @@ const Header = ({ startLogOut }) => (
 			Create
 		</NavLink>
 
-		{/* <NavLink to="/help" activeClassName="is-active">
-			Help
-		</NavLink> */}
 		<button onClick={startLogOut}>Log out</button>
 	</header>
 );
