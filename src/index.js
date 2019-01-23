@@ -22,8 +22,8 @@ const Jsx = (
 		<AppRouter />
 	</Provider>
 );
+let hasRender = false;
 const renderApp = () => {
-	let hasRender = false;
 	if (!hasRender) {
 		ReactDOM.render(Jsx, document.getElementById("root"));
 		hasRender = true;
@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged(user => {
 			renderApp();
 		});
 		if (history.location.pathname === "/") {
-			history.push("/home");
+			history.push("/");
 		}
 	} else {
 		console.log("log out ");

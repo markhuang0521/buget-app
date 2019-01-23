@@ -1,5 +1,7 @@
 import moment from "moment";
 
+// Get visible expenses
+
 const selectExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
 	return expenses
 		.filter(expense => {
