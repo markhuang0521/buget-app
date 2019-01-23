@@ -8,7 +8,7 @@ import configStore from "./store/configStore";
 import { firebase } from "./firebase/firebase";
 import { startSetExpense } from "./actions/expenses";
 import { logIn, logOut } from "./actions/auth";
-// import getVisibleExpenses from "./selectors/visbleExpenses";
+import getVisibleExpenses from "./selectors/visbleExpenses";
 
 const store = configStore();
 // store.subscribe(() => {
@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged(user => {
 			renderApp();
 		});
 		if (history.location.pathname === "/") {
-			history.push("/");
+			history.push("/home");
 		}
 	} else {
 		console.log("log out ");
