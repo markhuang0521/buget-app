@@ -11,7 +11,7 @@ var CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = env => {
 	isProduction = env === "production";
 	return {
-		entry: "./src/index.js",
+		entry: ["babel-polyfill", "./src/index.js"],
 		output: {
 			path: path.resolve(__dirname, "dist"),
 			filename: "bundle.js"
