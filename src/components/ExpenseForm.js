@@ -64,38 +64,40 @@ class ExpenseForm extends Component {
 	};
 	render() {
 		return (
-			<div>
-				{this.state.error && <p>{this.state.error}</p>}
-				<form onSubmit={this.onFormSubmit}>
-					<input
-						value={this.state.description}
-						onChange={this.onDescriptionChange}
-						type="text"
-						placeholder="description"
-						autoFocus
-					/>
-					<input
-						type="text"
-						placeholder="Amount"
-						value={this.state.amount}
-						onChange={this.onAmountChange}
-					/>
-					<SingleDatePicker //third party componment
-						date={this.state.createAt}
-						onDateChange={this.onDateChange}
-						focused={this.state.calendarFocus}
-						onFocusChange={this.onFocusChange}
-						numberOfMonths={1}
-						isOutsideRange={() => false}
-					/>
-					<textarea
-						value={this.state.note}
-						onChange={this.onNoteChange}
-						placeholder="Add a note for your expense"
-					/>
-					<button>Add Expense</button>
-				</form>
-			</div>
+			<form className="form" onSubmit={this.onFormSubmit}>
+				{this.state.error && <p className="form__error">{this.state.error}</p>}
+
+				<input
+					className="text-input"
+					value={this.state.description}
+					onChange={this.onDescriptionChange}
+					type="text"
+					placeholder="description"
+					autoFocus
+				/>
+				<input
+					className="text-input"
+					type="text"
+					placeholder="Amount"
+					value={this.state.amount}
+					onChange={this.onAmountChange}
+				/>
+				<SingleDatePicker //third party componment
+					date={this.state.createAt}
+					onDateChange={this.onDateChange}
+					focused={this.state.calendarFocus}
+					onFocusChange={this.onFocusChange}
+					numberOfMonths={1}
+					isOutsideRange={() => false}
+				/>
+				<textarea
+					className="text-area"
+					value={this.state.note}
+					onChange={this.onNoteChange}
+					placeholder="Add a note for your expense"
+				/>
+				<button className="button">Add Expense</button>
+			</form>
 		);
 	}
 }

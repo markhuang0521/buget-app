@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 // process.env.NODE_ENV = process.env.NODE_ENV || "development";
 // if (process.env.NODE_ENV === "test") {
@@ -30,6 +31,17 @@ module.exports = env => {
 						"css-loader",
 						"sass-loader"
 					]
+				},
+				{
+					test: /\.(png|jpg|gif)$/,
+					use: [
+						{
+							loader: "file-loader",
+							options: {
+								name: "[name][hash].[ext]"
+							}
+						}
+					]
 				}
 			]
 		},
@@ -40,7 +52,8 @@ module.exports = env => {
 			new HtmlWebpackPlugin({
 				template: "./public/index.html",
 				favicon: "./public/favicon.png"
-			})
+			}),
+			new CopyWebpackPlugin([{ from: "public/images", to: "images" }])
 		],
 		devtool: isProduction ? "source-map" : "inline-source-map",
 		devServer: {

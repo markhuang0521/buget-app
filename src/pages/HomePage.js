@@ -5,8 +5,8 @@ import ExpenseSummary from "../components/ExpenseSummary";
 
 const HomePage = () => (
 	<div>
-		<ExpenseListFilter />
 		<ExpenseSummary />
+		<ExpenseListFilter />
 		<ExpenseList />
 	</div>
 );

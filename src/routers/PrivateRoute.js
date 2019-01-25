@@ -10,7 +10,7 @@ export const PrivateRoute = ({ isAuth, component: Component, ...rest }) => (
 			isAuth ? (
 				<div>
 					<Header />
-					<Component {...props} />{" "}
+					<Component {...props} />
 				</div>
 			) : (
 				<Redirect to="/" />

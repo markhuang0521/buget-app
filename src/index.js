@@ -4,6 +4,7 @@ import AppRouter, { history } from "./routers/AppRouter";
 import { Provider } from "react-redux";
 import "./style/style.scss";
 import "normalize.css";
+import LoadingPage from "./components/LoadingPage";
 import configStore from "./store/configStore";
 import { firebase } from "./firebase/firebase";
 import { startSetExpense } from "./actions/expenses";
@@ -30,7 +31,7 @@ const renderApp = () => {
 	}
 };
 
-ReactDOM.render(<p>loading...</p>, document.getElementById("root"));
+ReactDOM.render(<LoadingPage />, document.getElementById("root"));
 
 firebase.auth().onAuthStateChanged(user => {
 	if (user) {
